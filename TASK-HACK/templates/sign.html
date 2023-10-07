@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family:cursive;
+      background: url('https://img.freepik.com/premium-photo/top-view-office-desk-with-office-tools-computer-laptop-wood-table-background-with-copy-space-generative-ai_3535-3556.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #signup-form {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+  <title>Sign Up</title>
+</head>
+<body>
+  <div id="signup-form">
+    <h2>Sign Up</h2>
+    <form onsubmit="return validateForm()">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+
+      // Email validation
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+      }
+
+      // Password validation
+      var passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(.{8,})$/;
+      if (!passwordRegex.test(password)) {
+        alert('Password must be at least 8 characters long and contain at least one uppercase letter, one number, and one special character.');
+        return false;
+      }
+
+      // If both validations pass
+      alert('Sign Up Successful!');
+      return true;
+    }
+  </script>
+</body>
+</html>
